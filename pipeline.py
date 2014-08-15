@@ -235,6 +235,8 @@ class WgetArgs(object):
             wget_args.append('http://wallbase.cc/wallpaper/purity/{0}/1'.format(item_value))
             wget_args.append('http://wallbase.cc/wallpaper/purity/{0}/0'.format(item_value))
             wget_args.append('http://wallbase.cc/index.php/wallpaper/delete/{0}'.format(item_value))
+            wget_args.append('http://wallbase.cc/wallpaper/add2favorites/{0}/0'.format(item_value))
+            wget_args.append('http://wallbase.cc/wallpaper/add2favorites/{0}/1'.format(item_value))
             wget_args.append('http://walb.es/{0}'.format(item_value))
         elif item_type == 'tag':
             wget_args.append('http://wallbase.cc/search?tag={0}'.format(item_value))
