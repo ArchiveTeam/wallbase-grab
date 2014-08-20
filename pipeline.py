@@ -180,7 +180,7 @@ class WgetArgs(object):
             "--tries", "inf",
             "--span-hosts",
             "--waitretry", "30",
-            "--domains", "wallbase.cc,static.wallbase.cc,wallpapers.wallbase.cc,slave.wallbase.cc,sthumbs.wallbase.cc,thumbs.wallbase.cc,origthumbs.wallbase.cc,walb.es",
+            "--domains", "wallbase.cc,walb.es",
             "--warc-file", ItemInterpolation("%(item_dir)s/%(warc_file_base)s"),
             "--warc-header", "operator: Archive Team",
             "--warc-header", "wallbase-dld-script-version: " + VERSION,
