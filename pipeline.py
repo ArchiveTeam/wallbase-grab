@@ -311,7 +311,7 @@ pipeline = Pipeline(
     PrepareDirectories(warc_prefix="wallbase"),
     WgetDownload(
         WgetArgs(),
-        max_tries=2,
+        max_tries=5,
         accept_on_exit_code=[0, 8],
         env={
             "item_dir": ItemValue("item_dir"),
