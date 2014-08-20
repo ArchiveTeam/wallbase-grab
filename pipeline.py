@@ -183,7 +183,7 @@ class WgetArgs(object):
             "--domains", "wallbase.cc,static.wallbase.cc,wallpapers.wallbase.cc,slave.wallbase.cc,sthumbs.wallbase.cc,thumbs.wallbase.cc,origthumbs.wallbase.cc,walb.es",
             "--warc-file", ItemInterpolation("%(item_dir)s/%(warc_file_base)s"),
             "--warc-header", "operator: Archive Team",
-            "--warc-header", "wallbase-archive-dld-script-version: " + VERSION,
+            "--warc-header", "wallbase-dld-script-version: " + VERSION,
             "--warc-header", ItemInterpolation("wallbase-user: %(item_name)s"),
         ]
         
