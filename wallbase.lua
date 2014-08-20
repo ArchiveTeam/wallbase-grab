@@ -13,17 +13,17 @@ read_file = function(file)
   end
 end
 
---wget.callbacks.download_child_p = function(urlpos, parent, depth, start_url_parsed, iri, verdict, reason)
-  --local url = urlpos["url"]["url"]
-  
-  -- Don't download the favicon over and over again
-  --if url == "http://wallbase.cc/fav.gif" then
-    --return false
-  
-  --else
-    --return verdict
-  --end
---end
+-- wget.callbacks.download_child_p = function(urlpos, parent, depth, start_url_parsed, iri, verdict, reason)
+--   local url = urlpos["url"]["url"]
+--   
+--   -- Don't download the favicon over and over again
+--   if url == "http://wallbase.cc/fav.gif" then
+--     return false
+--   
+--   else
+--     return verdict
+--   end
+-- end
 
 wget.callbacks.httploop_result = function(url, err, http_stat)
   -- NEW for 2014: Slightly more verbose messages because people keep
