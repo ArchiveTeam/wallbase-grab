@@ -198,6 +198,7 @@ class WgetArgs(object):
         
         if item_type == 'wallpaper':
             wget_args.append('http://wallbase.cc/wallpaper/{0}'.format(item_value))
+            wget_args.append('http://wallbase.cc/index.php/wallpaper/index/{0}'.format(item_value))
             wget_args.append('http://wallpapers.wallbase.cc/high-resolution/wallpaper-{0}.jpg'.format(item_value))
             wget_args.append('http://wallpapers.wallbase.cc/manga-anime/wallpaper-{0}.jpg'.format(item_value))
             wget_args.append('http://wallpapers.wallbase.cc/rozne/wallpaper-{0}.jpg'.format(item_value))
