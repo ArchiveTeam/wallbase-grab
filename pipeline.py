@@ -197,6 +197,8 @@ class WgetArgs(object):
         assert item_type in ('wallpaper', 'tag', 'user', 'collection', 'color', 'toplist', 'screenshot')
         
         if item_type == 'wallpaper':
+            #example url: http://wallbase.cc/wallpaper/2940947
+            #example item: wallpaper:2940947
             wget_args.append('http://wallbase.cc/wallpaper/{0}'.format(item_value))
             wget_args.append('http://wallbase.cc/index.php/wallpaper/index/{0}'.format(item_value))
             wget_args.append('http://wallpapers.wallbase.cc/high-resolution/wallpaper-{0}.jpg'.format(item_value))
@@ -241,6 +243,8 @@ class WgetArgs(object):
             wget_args.append('http://wallbase.cc/wallpaper/add2favorites/{0}/1'.format(item_value))
             wget_args.append('http://walb.es/{0}'.format(item_value))
         elif item_type == 'tag':
+            #example url: http://wallbase.cc/search?tag=9249
+            #example item: tag:9249
             wget_args.append('http://wallbase.cc/search?tag={0}'.format(item_value))
             wget_args.append('http://wallbase.cc/search/index/?tag={0}'.format(item_value))
             wget_args.append('http://wallbase.cc/search/index/0?tag={0}'.format(item_value))
@@ -250,6 +254,8 @@ class WgetArgs(object):
             wget_args.append('http://wallbase.cc/tags/subscribe/{0}/1'.format(item_value))
             wget_args.append('http://wallbase.cc/tags/subscribe/{0}/0'.format(item_value))
         elif item_type == 'user':
+            #example url: http://wallbase.cc/user/id-2
+            #example item: user:2
             wget_args.append('http://wallbase.cc/user/id-{0}'.format(item_value))
             wget_args.append('http://wallbase.cc/user/id-{0}/'.format(item_value))
             wget_args.append('http://wallbase.cc/user/subscribe/{0}/1'.format(item_value))
@@ -260,18 +266,26 @@ class WgetArgs(object):
             wget_args.append('http://wallbase.cc/images/avatars/av_{0}.png'.format(item_value))
             wget_args.append('http://wallbase.cc/images/avatars/av_{0}.jpg'.format(item_value))
         elif item_type == 'collection':
+            #example url: http://wallbase.cc/collection/26215
+            #example item: collection:26215
             wget_args.append('http://wallbase.cc/collection/{0}'.format(item_value))
             wget_args.append('http://wallbase.cc/collection/{0}/'.format(item_value))
             wget_args.append('http://wallbase.cc/collection/rate_coll/{0}/down'.format(item_value))
             wget_args.append('http://wallbase.cc/collection/rate_coll/{0}/up'.format(item_value))
         elif item_type == 'color':
+            #example url: http://wallbase.cc/search?color=69413a
+            #example item: color:69413a
             wget_args.append('http://wallbase.cc/search?color={0}'.format(item_value))
             wget_args.append('http://wallbase.cc/search?q=&section=wallpapers&board=12&res_opt=eqeq&res=0x0&aspect=0&purity=100&order=def_relevance&order_mode=desc&thpp=32&r=145&g=150&b=181&color={0}'.format(item_value))
         elif item_type == 'toplist':
+            #example url: http://wallbase.cc/toplist?ts=1w
+            #example item: toplist:1w
             wget_args.append('http://wallbase.cc/toplist?ts={0}'.format(item_value))
             wget_args.append('http://wallbase.cc/toplist?section=wallpapers&board=12&res_opt=eqeq&res=0x0&aspect=0&purity=100&thpp=32&ts={0}'.format(item_value))
             wget_args.append('http://wallbase.cc/toplist?section=collections&board=12&res_opt=eqeq&res=0x0&aspect=0&purity=100&thpp=32&ts={0}'.format(item_value))
         elif item_type == 'screenshot':
+            #example url: http://wallbase.cc/user/screenshot/3759
+            #example item: screenshot:3759
             wget_args.append('http://wallbase.cc/user/screenshot/{0}'.format(item_value))
             wget_args.append('http://slave.wallbase.cc/desktops/desk_{0}.jpg'.format(item_value))
             wget_args.append('http://slave.wallbase.cc/desktops/desk_{0}_orig.jpg'.format(item_value))
