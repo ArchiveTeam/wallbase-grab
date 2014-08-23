@@ -194,7 +194,7 @@ class WgetArgs(object):
         item['item_type'] = item_type
         item['item_value'] = item_value
         
-        assert item_type in ('wallpaper', 'tag', 'user', 'collection', 'color', 'toplist', 'screenshot')
+        assert item_type in ('wallpaper', 'tag', 'user', 'collection', 'color', 'toplist', 'screenshot', 'favorite')
         
         if item_type == 'wallpaper':
             #example url: http://wallbase.cc/wallpaper/2940947
@@ -292,6 +292,17 @@ class WgetArgs(object):
             wget_args.append('http://slave.wallbase.cc/desktops/desk_{0}_orig.jpg#-moz-resolution=16,16'.format(item_value))
             wget_args.append('http://slave.wallbase.cc/desktops/desk_{0}.png'.format(item_value))
             wget_args.append('http://slave.wallbase.cc/desktops/desk_{0}.gif'.format(item_value))
+        elif item_type == 'favorite':
+            #example url: http://wallbase.cc/favorites/570499
+            #example item: favorite:570499
+            wget_args.append('http://wallbase.cc/favorites/{0}'.format(item_value))
+            wget_args.append('http://wallbase.cc/favorites/{0}/'.format(item_value))
+            wget_args.append('http://wallbase.cc/favorites/change_perms/{0}/1'.format(item_value))
+            wget_args.append('http://wallbase.cc/favorites/change_perms/{0}/0'.format(item_value))
+            wget_args.append('http://wallbase.cc/index.php/favorites/rename_coll/{0}'.format(item_value))
+            wget_args.append('http://wallbase.cc/index.php/favorites/new_coll/{0}'.format(item_value))
+            wget_args.append('http://wallbase.cc/favorites/delete_coll/{0}/delall'.format(item_value))
+            wget_args.append('http://wallbase.cc/favorites/delete_coll/{0}/delroot'.format(item_value))
         else:
             raise Exception('Unknown item')
         
