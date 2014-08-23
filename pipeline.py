@@ -268,7 +268,7 @@ class WgetArgs(object):
                 wget_args.append('http://wallbase.cc/search/index/60?tag={0}'.format(item_value))
                 wget_args.append('http://wallbase.cc/tags/{0}'.format(item_value))
                 wget_args.append('http://wallbase.cc/tags/{0}/'.format(item_value))
-                wget_args.append('http://wallbase.cc/tags/info/{0}'.format(item_num))
+                wget_args.append('http://wallbase.cc/tags/info/{0}'.format(item_value))
                 wget_args.append('http://wallbase.cc/tags/subscribe/{0}/1'.format(item_value))
                 wget_args.append('http://wallbase.cc/tags/subscribe/{0}/0'.format(item_value))
         elif item_type == 'user':
