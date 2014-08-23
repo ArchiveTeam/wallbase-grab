@@ -245,15 +245,20 @@ class WgetArgs(object):
         elif item_type == 'tag':
             #example url: http://wallbase.cc/search?tag=9249
             #example item: tag:9249
-            wget_args.append('http://wallbase.cc/search?tag={0}'.format(item_value))
-            wget_args.append('http://wallbase.cc/search/index/?tag={0}'.format(item_value))
-            wget_args.append('http://wallbase.cc/search/index/0?tag={0}'.format(item_value))
-            wget_args.append('http://wallbase.cc/search/index/60?tag={0}'.format(item_value))
-            wget_args.append('http://wallbase.cc/tags/{0}'.format(item_value))
-            wget_args.append('http://wallbase.cc/tags/{0}/'.format(item_value))
-            wget_args.append('http://wallbase.cc/tags/info/{0}'.format(item_value))
-            wget_args.append('http://wallbase.cc/tags/subscribe/{0}/1'.format(item_value))
-            wget_args.append('http://wallbase.cc/tags/subscribe/{0}/0'.format(item_value))
+            item_num, item_name = item_value.split(':', 1)
+            item['item_num'] = item_num
+            item['item_name'] = item_name
+            wget_args.append('http://wallbase.cc/search?tag={0}'.format(item_num))
+            wget_args.append('http://wallbase.cc/search/index/?tag={0}'.format(item_num))
+            wget_args.append('http://wallbase.cc/search/index/0?tag={0}'.format(item_num))
+            wget_args.append('http://wallbase.cc/search/index/60?tag={0}'.format(item_num))
+            wget_args.append('http://wallbase.cc/tags/{0}'.format(item_num))
+            wget_args.append('http://wallbase.cc/tags/{0}/'.format(item_num))
+            wget_args.append('http://wallbase.cc/tags/info/{0}'.format(item_num))
+            wget_args.append('http://wallbase.cc/tags/subscribe/{0}/1'.format(item_num))
+            wget_args.append('http://wallbase.cc/tags/subscribe/{0}/0'.format(item_num))
+            wget_args.append('http://wallbase.cc/search?q==({0})'.format(item_name))
+            wget_args.append('http://wallbase.cc/search?q==({0})&color=&section=wallpapers&q==({0})&res_opt=eqeq&res=0x0&order_mode=desc&thpp=60&purity=111&board=213&aspect=0.00'.format(item_name))
         elif item_type == 'user':
             #example url: http://wallbase.cc/user/id-2
             #example item: user:2
