@@ -244,7 +244,7 @@ class WgetArgs(object):
             wget_args.append('http://wallbase.cc/wallpaper/delete/{0}/rep'.format(item_value))
             wget_args.append('http://walb.es/{0}'.format(item_value))
         elif item_type == 'tag':
-            #example url: http://wallbase.cc/search?tag=9249
+            #example url: http://wallbase.cc/search?tag=8179
             #example item: tag:8179:fate/stay night
             if ':' in item_value:
                 item_num, item_name = item_value.split(':', 1)
