@@ -245,7 +245,7 @@ class WgetArgs(object):
             wget_args.append('http://walb.es/{0}'.format(item_value))
         elif item_type == 'tag':
             #example url: http://wallbase.cc/search?tag=9249
-            #example item: tag:9249
+            #example item: tag:8179:fate/stay night
             if ':' in item_value:
                 item_num, item_name = item_value.split(':', 1)
                 item['item_num'] = item_num
@@ -261,6 +261,10 @@ class WgetArgs(object):
                 wget_args.append('http://wallbase.cc/tags/subscribe/{0}/0'.format(item_num))
                 wget_args.append('http://wallbase.cc/search?q==({0})'.format(item_name))
                 wget_args.append('http://wallbase.cc/search?q==({0})&color=&section=wallpapers&q==({0})&res_opt=eqeq&res=0x0&order_mode=desc&thpp=60&purity=111&board=213&aspect=0.00'.format(item_name))
+                if '/' in item_name:
+                    item_value.replace('/', ' ')
+                    wget_args.append('http://wallbase.cc/search?q==({0})'.format(item_name))
+                    wget_args.append('http://wallbase.cc/search?q==({0})&color=&section=wallpapers&q==({0})&res_opt=eqeq&res=0x0&order_mode=desc&thpp=60&purity=111&board=213&aspect=0.00'.format(item_name))
             else:
                 wget_args.append('http://wallbase.cc/search?tag={0}'.format(item_value))
                 wget_args.append('http://wallbase.cc/search/index/?tag={0}'.format(item_value))
