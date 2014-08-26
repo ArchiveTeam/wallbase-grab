@@ -118,7 +118,10 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
       
       table.insert(urls, { url=tag_wallpaper_number_new_url })
     end
-  elseif string.match(url, "wallbase%.cc/search/index/[0-9]+%?q==.+") then
+  end
+  
+  --example url: http://wallbase.cc/search/index/64?q==%28fate%20stay%20night%29&color=&section=wallpapers&q==%28fate%20stay%20night%29&res_opt=eqeq&res=0x0&order_mode=desc&thpp=32&purity=100&board=21&aspect=0.00
+  if string.match(url, "wallbase%.cc/search/index/[0-9]+%?q==.+") then
     if not html then
       html = read_file(file)
     end
