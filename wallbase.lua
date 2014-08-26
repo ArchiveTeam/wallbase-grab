@@ -49,6 +49,67 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
       table.insert(urls, { url=next_url })
     end
   end
+  
+  --example url: http://wallbase.cc/search?tag=8179
+  if string.match(url, "wallbase%.cc/search%?tag=[0-9]+") then
+    if not html then
+      html = read_file(file)
+    end
+    
+    if not string.match(html, '<div class="title">The End</div>') and
+      string.match(html, '<div class="subtitle">There seems to be nothing here%. Move along%.%.%.</div>') then
+      local tag_number = string.match(url, "wallbase%.cc/search%?tag=([0-9]+)")
+      
+      tag_wallpaper_number_zero = 0
+      tag_wallpaper_number_new_url1 = "http://wallbase.cc/search/"..tag_wallpaper_number_new.."?tag="..tag_number
+      tag_wallpaper_number_new_url2 = "http://wallbase.cc/search/index/"..tag_number.."?tag="..tag_wallpaper_number_new
+      
+      table.insert(urls, { url=tag_wallpaper_number_new_url1 })
+      table.insert(urls, { url=tag_wallpaper_number_new_url2 })
+    end
+  end
+  
+  --example url: http://wallbase.cc/search/60?tag=8179
+  if string.match(url, "wallbase%.cc/search/[0-9]+%?tag=[0-9]+") then
+    if not html then
+      html = read_file(file)
+    end
+    
+    if not string.match(html, '<div class="title">The End</div>') and
+      string.match(html, '<div class="subtitle">There seems to be nothing here%. Move along%.%.%.</div>') then
+      local tag_wallpaper_number = string.match(url, "wallbase%.cc/search/([0-9]+)%?tag=[0-9]+")
+      local tag_number = string.match(url, "wallbase%.cc/search/[0-9]+%?tag=([0-9]+)")
+      
+      tag_wallpaper_number_new = tag_wallpaper_number + 60
+      tag_wallpaper_number_new_url = "http://wallbase.cc/search/"..tag_wallpaper_number_new.."?tag="..tag_number
+      
+      table.insert(urls, { url=tag_wallpaper_number_new_url })
+    else
+        
+    end
+  end
+  
+  --example url: http://wallbase.cc/search/index/0?tag=8179
+  if string.match(url, "wallbase%.cc/search/index/[0-9]+%?tag=[0-9]+") then
+    if not html then
+      html = read_file(file)
+    end
+    
+    if not string.match(html, '<div class="title">The End</div>') and
+      string.match(html, '<div class="subtitle">There seems to be nothing here%. Move along%.%.%.</div>') then
+      local tag_wallpaper_number = string.match(url, "wallbase%.cc/search/index/([0-9]+)%?tag=[0-9]+")
+      local tag_number = string.match(url, "wallbase%.cc/search/index/[0-9]+%?tag=([0-9]+)")
+      
+      tag_wallpaper_number_new = tag_wallpaper_number + 32
+      tag_wallpaper_number_new_url = "http://wallbase.cc/search/index/"..tag_number.."?tag="..tag_wallpaper_number_new
+      
+      table.insert(urls, { url=tag_wallpaper_number_new_url })
+    else
+        
+    end
+  end
+  
+  
 end
 
 wget.callbacks.httploop_result = function(url, err, http_stat)
