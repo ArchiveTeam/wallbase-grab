@@ -84,8 +84,6 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
       tag_wallpaper_number_new_url = "http://wallbase.cc/search/"..tag_wallpaper_number_new.."?tag="..tag_number
       
       table.insert(urls, { url=tag_wallpaper_number_new_url })
-    else
-        
     end
   end
   
@@ -104,8 +102,6 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
       tag_wallpaper_number_new_url = "http://wallbase.cc/search/index/"..tag_number.."?tag="..tag_wallpaper_number_new
       
       table.insert(urls, { url=tag_wallpaper_number_new_url })
-    else
-        
     end
   end
   
