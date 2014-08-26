@@ -67,6 +67,21 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
       table.insert(urls, { url=tag_wallpaper_number_new_url1 })
       table.insert(urls, { url=tag_wallpaper_number_new_url2 })
     end
+  --example url: http://wallbase.cc/search?q==%28fate%20stay%20night%29&color=&section=wallpapers&q==%28fate%20stay%20night%29&res_opt=eqeq&res=0x0&order_mode=desc&thpp=32&purity=100&board=21&aspect=0.00
+  elseif string.match(url, "wallbase%.cc/search%?tag==.+") then
+    if not html then
+      html = read_file(file)
+    end
+    
+    if not string.match(html, '<div class="title">The End</div>') and
+      string.match(html, '<div class="subtitle">There seems to be nothing here%. Move along%.%.%.</div>') then
+      local tag_string = string.match(url, "wallbase%.cc/search%?tag==(.+)")
+      
+      tag_wallpaper_number_zero = 0
+      tag_wallpaper_number_new_url = "http://wallbase.cc/search/index/"..tag_wallpaper_number_zero.."?q=="..tag_string
+      
+      table.insert(urls, { url=tag_wallpaper_number_new_url })
+    end
   end
   
   --example url: http://wallbase.cc/search/60?tag=8179
@@ -103,9 +118,25 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
       
       table.insert(urls, { url=tag_wallpaper_number_new_url })
     end
+  elseif string.match(url, "wallbase%.cc/search/index/[0-9]+%?q==.+") then
+    if not html then
+      html = read_file(file)
+    end
+    
+    if not string.match(html, '<div class="title">The End</div>') and
+      string.match(html, '<div class="subtitle">There seems to be nothing here%. Move along%.%.%.</div>') then
+      local tag_wallpaper_number = string.match(url, "wallbase%.cc/search/index/([0-9]+)%?q==.+")
+      local tag_string = string.match(url, "wallbase%.cc/search/index/[0-9]+%?q==(.+)")
+      
+      tag_wallpaper_number_new = tag_wallpaper_number + 32
+      tag_wallpaper_number_new_url = "http://wallbase.cc/search/index/"..tag_wallpaper_number_new.."?q=="..tag_string
+      
+      table.insert(urls, { url=tag_wallpaper_number_new_url })
+    end
   end
   
-  
+  --example url: http://wallbase.cc/search?q==%28fate%20stay%20night%29&color=&section=wallpapers&q==%28fate%20stay%20night%29&res_opt=eqeq&res=0x0&order_mode=desc&thpp=32&purity=100&board=21&aspect=0.00
+  if string.match(url, )
 end
 
 wget.callbacks.httploop_result = function(url, err, http_stat)
