@@ -61,8 +61,8 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
       local tag_number = string.match(url, "wallbase%.cc/search%?tag=([0-9]+)")
       
       tag_wallpaper_number_zero = 0
-      tag_wallpaper_number_new_url1 = "http://wallbase.cc/search/"..tag_wallpaper_number_new.."?tag="..tag_number
-      tag_wallpaper_number_new_url2 = "http://wallbase.cc/search/index/"..tag_number.."?tag="..tag_wallpaper_number_new
+      tag_wallpaper_number_new_url1 = "http://wallbase.cc/search/"..tag_wallpaper_number_zero.."?tag="..tag_number
+      tag_wallpaper_number_new_url2 = "http://wallbase.cc/search/index/"..tag_wallpaper_number_zero.."?tag="..tag_number
       
       table.insert(urls, { url=tag_wallpaper_number_new_url1 })
       table.insert(urls, { url=tag_wallpaper_number_new_url2 })
@@ -99,7 +99,7 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
       local tag_number = string.match(url, "wallbase%.cc/search/index/[0-9]+%?tag=([0-9]+)")
       
       tag_wallpaper_number_new = tag_wallpaper_number + 32
-      tag_wallpaper_number_new_url = "http://wallbase.cc/search/index/"..tag_number.."?tag="..tag_wallpaper_number_new
+      tag_wallpaper_number_new_url = "http://wallbase.cc/search/index/"..tag_wallpaper_number_new.."?tag="..tag_number
       
       table.insert(urls, { url=tag_wallpaper_number_new_url })
     end
